@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var db = require('./config/db');
+var apiRoutes = require('./config/routes');
 
 //connect to db here
 mongoose.connect(db.url);
@@ -15,8 +16,9 @@ app.use(bodyParser.json());
 app.use('/', express.static('./public'));
 app.use('/bower_componets', express.static('./bower_components'));
 
-//api goes here
 
+//api goes here
+app.use('/api/v1', apiRoutes);
 
 
 ///listen
