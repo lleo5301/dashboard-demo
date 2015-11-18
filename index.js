@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 //static routes
 app.use('/', express.static('./public'));
-app.use('/bower_componets', express.static('./bower_components'));
+app.use('/bower_components', express.static('./bower_components'));
 
 
 //api goes here
