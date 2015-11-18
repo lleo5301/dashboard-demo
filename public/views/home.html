@@ -1,0 +1,69 @@
+<div class="row blue-grey darken-2 z-depth-2">
+	<h1 class="center-align">  </h1>
+</div>
+
+<div class="stats row white">
+	<h1 class="center-align z-depth-1 grey darken-4 white-text header" > Subreddit Stats </h1>
+	<h4 class="center-align z-depth-1" ng-hide="loadingUsers"> Popular Subreddits September 2015 </h4>
+	<div class="col s6" ng-hide="loadingUsers">
+		<canvas id="subreddit" class="chart chart-doughnut"
+		  chart-data="subreddit.data" chart-labels="labels">
+		</canvas> 
+	</div>
+	<div class="col s6" ng-hide="loadingUsers">
+		<canvas id="bar" class="chart chart-bar"
+		  chart-data="data" chart-labels="labels">
+		</canvas>
+	</div>
+	<div class="col s12 green lighten-1" ng-show="loadingUsers">
+			<h3 class="center-align">Loading ...</h3>
+			<div class="loader">Loading...</div>
+	</div>
+	
+</div>
+<div class="users row">
+	<h1 class="center-align header white-text grey darken-4">Most Active Users(September)</h1>
+	<div class="col s8 white balack-text" ng-hide="loadingUsers">
+		<canvas id="doughnut1" class="chart chart-doughnut"
+		  chart-data="usersAggregate.data" chart-labels="usersAggregate.labels" ng-hide="loadingUsers">
+		</canvas> 
+	</div>
+	<div class="col s4 " ng-hide="loadingUsers">
+		<table class="white black-text bordered">
+			<thead>
+				<th>User</th>
+				<th>Total Comments</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in activeUsers">
+					<td><a href="#/user/{{user.user}}">{{user.user}}</a></td>
+					<td>{{user.total}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="col s12 indigo lighten-1" ng-show="loadingUsers">
+		<h3 class="center-align">Loading ...</h3>
+		<div class="loader">Loading...</div>
+	</div>
+</div>
+
+<div class="comments row">
+	<h1 class="center-align header white-text grey darken-4">Comments *<small>Reddit Septmber</small></h1>
+	<div class="col s12" id="comments">
+		<table class="white black-text bordered" >
+			<thead>
+				<th>Date</th>
+				<th>Comments</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="comment in comments">
+					<td>{{comment.date | date : 'MM/dd/yyyy'}}</td>
+					<td>{{comment.comment}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

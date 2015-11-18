@@ -1,0 +1,23 @@
+<div class="row blue-grey darken-2 z-depth-2">
+	<h1 class="center-align">  </h1>
+</div>
+<div class="row white">
+	<div class="col s12">
+		<table class="bordered">
+			<thead>
+				<th>Date</th>
+				<th>Comment</th>
+				<th>Ups</th>
+				<th>Controversiality</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="comment in comments">
+					<td>{{comment.date | date:'MM/dd/yyyy'}}</td>
+					<td style="word-wrap: break-word">{{comment.comment}}</td>
+					<td>{{comment.ups}}</td>
+					<td>{{comment.controversiality}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
